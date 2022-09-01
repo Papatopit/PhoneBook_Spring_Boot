@@ -17,12 +17,12 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "_phone_number")
+    @Column(name = "phone_number")
     private Long phoneNumber;
 
-    @Column(name = "_contact_name")
+    @Column(name = "contact_name")
     private String nameAndSurname;
 
-    @Column(name = "_update_date")
+    @Column(name = "update_date")
     private LocalDate updateDate;
 }

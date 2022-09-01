@@ -1,0 +1,28 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="set-unique-name-1" author="pavel">
+
+        <createTable tableName="phone_book">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="BIGINT" />
+
+            <column name="contact_name" type="VARCHAR(5055)"/>
+
+            <column name="update_date" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+<!--&#45;&#45;create TABLE IF NOT EXISTS phone_book(-->
+<!--&#45;&#45;-->
+<!--&#45;&#45;    id LONG NOT NULL AUTO_INCREMENT,-->
+<!--&#45;&#45;    phone_number LONG NOT NULL,-->
+<!--&#45;&#45;    contact_name VARCHAR(255) NOT NULL,-->
+<!--&#45;&#45;    update_date DATETIME NOT NULL,-->
+<!--&#45;&#45;    PRIMARY KEY(id)-->
+<!--&#45;&#45;);-->

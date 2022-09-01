@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ContactServiceImplementation implements ContactService {
+public class ContactServiceImpl implements ContactService {
 
     @Autowired
     private ContactRepository contactRepository;
@@ -27,12 +27,8 @@ public class ContactServiceImplementation implements ContactService {
 
     @Override
     public Contact getContact(Long id) {
-        Contact contact = null;
-        Optional<Contact> optional = contactRepository.findById(id);
-        if (optional.isPresent()){
-            contact = optional.get();
-        }
-        return contact ;
+        return  contactRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Can not find any contacts by ID"));
     }
 
     @Override
