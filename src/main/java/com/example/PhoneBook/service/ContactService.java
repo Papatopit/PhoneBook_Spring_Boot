@@ -15,5 +15,4 @@ public interface ContactService {
     public void deleteContact(Long id);
 
 
-
 }

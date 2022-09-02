@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222327;
+    color: #fff;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 10px 20px;
+}
+
+td {
+    text-align: center;
+}
+
+i {
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#add {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+dialog::backdrop {
+    background-color: #673ab752;
+}

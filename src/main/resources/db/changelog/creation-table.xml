@@ -9,20 +9,14 @@
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="phone_number" type="BIGINT" />
-
-            <column name="contact_name" type="VARCHAR(5055)"/>
-
-            <column name="update_date" type="VARCHAR(20)"/>
+            <column name="phone_number" type="BIGINT" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="VARCHAR(20)"/>
         </createTable>
     </changeSet>
 
 </databaseChangeLog>
-<!--&#45;&#45;create TABLE IF NOT EXISTS phone_book(-->
-<!--&#45;&#45;-->
-<!--&#45;&#45;    id LONG NOT NULL AUTO_INCREMENT,-->
-<!--&#45;&#45;    phone_number LONG NOT NULL,-->
-<!--&#45;&#45;    contact_name VARCHAR(255) NOT NULL,-->
-<!--&#45;&#45;    update_date DATETIME NOT NULL,-->
-<!--&#45;&#45;    PRIMARY KEY(id)-->
-<!--&#45;&#45;);-->
