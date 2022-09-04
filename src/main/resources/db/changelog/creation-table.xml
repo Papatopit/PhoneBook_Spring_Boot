@@ -1,22 +1,24 @@
-
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
     <changeSet id="set-unique-name-1" author="pavel">
-
         <createTable tableName="phone_book">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="phone_number" type="BIGINT" >
+            <column name="name" type="VARCHAR(255)" >
                 <constraints nullable="false"/>
             </column>
-            <column name="contact_name" type="VARCHAR(255)">
+            <column name="phone" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="modified_date" type="VARCHAR(20)"/>
+            <column name="created_at" type="TIMESTAMP"  />
+            <column name="modified_at" type="TIMESTAMP"/>
         </createTable>
+
+        <addPrimaryKey columnNames="id" constraintName="phone_book_pkey" tableName="phone_book"/>
+
     </changeSet>
 
 </databaseChangeLog>

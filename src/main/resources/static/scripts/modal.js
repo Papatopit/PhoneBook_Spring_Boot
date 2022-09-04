@@ -24,10 +24,8 @@ class Modal {
 
     getDialogData = () => {
         return {
-            id: Math.round(Math.random() * 10),
             name: this.nameInput.value,
-            phone: this.phoneInput.value,
-            date: this.dateInput.value ? new Date(this.dateInput.value) : new Date()
+            phone: this.phoneInput.value
         }
     }
 
@@ -38,7 +36,6 @@ class Modal {
     resetDialogData = () => {
         this.nameInput.value = '';
         this.phoneInput.value = '';
-        this.dateInput.value = Utils.formatDate(new Date());
     }
 
     setCallback (cb) {
@@ -48,6 +45,5 @@ class Modal {
     setDialogData (row) {
         this.nameInput.value = row.name;
         this.phoneInput.value = row.phone;
-        this.dateInput.value = Utils.formatDate(row.date);
     }
 }

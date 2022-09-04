@@ -12,8 +12,9 @@ class Table {
 
     add () {
         this.modal.setCallback((row) => {
-            http.createData(row).then(() => {
-                this.store.push(row);
+            http.createData(row).then((res) => res.json()).then((data) => {
+                console.log(data);
+                this.store.push(data);
                 this.updateTable();
             });
         });
@@ -33,8 +34,9 @@ class Table {
 
         this.modal.setDialogData(row);
         this.modal.setCallback((editedRow) => {
-            this.updateTable(editedRow).then(() => {
-                this.store[currentId] = editedRow;
+            http.updateData(editedRow).then((res) => res.json()).then((data) => {
+                console.log(data);
+                this.store[currentId] = data;
                 this.updateTable();
             });
         });
@@ -89,9 +91,12 @@ class TableRow {
         this.rowElm = document.createElement('tr');
 
         Object.entries(this.data).forEach(([key, value]) => {
+            if (key === 'id') {
+                return;
+            }
             const cellElm = document.createElement('td');
 
-            cellElm.append(key === 'date' ? value.toDateString() : value);
+            cellElm.append(key === 'date' ? new Date(value).toDateString() : value);
             this.rowElm.append(cellElm);
         });
 

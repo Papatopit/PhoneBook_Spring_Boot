@@ -11,7 +11,10 @@ class HTTP {
     }
 
     request (method, body) {
-        return fetch(this.API, { method, body });
+        return fetch(this.API, { method, body: JSON.stringify(body), headers: {
+                                                                           'Accept': 'application/json',
+                                                                           'Content-Type': 'application/json'
+                                                                         } });
     }
 
     createData (body) {
@@ -19,13 +22,13 @@ class HTTP {
     }
 
     deleteData (body) {
-        return this.request('DELETE', body);
+        return fetch(`${this.API}/${body.id}`, { method: 'DELETE' });
     }
 
     fetchData = () => fetch(this.API);
 
     updateData = (body) => {
-        return this.request('PATCH', body);
+        return this.request('PUT', body);
     }
 }
 

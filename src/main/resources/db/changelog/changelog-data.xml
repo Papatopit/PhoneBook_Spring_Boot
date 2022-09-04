@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <property name="date_now" value="now()" dbms="h2"/>
+
+    <changeSet id="set-unique-name-1" author="pavel">
+
+        <insert tableName="phone_book">
+            <column name="name" value="Mike"/>
+            <column name="phone" value="89112473565"/>
+            <column name="created_at" value="${date_now}"/>
+            <column name="modified_at" value="${date_now}"/>
+        </insert>
+        <insert tableName="phone_book">
+            <column name="name" value="John"/>
+            <column name="phone" value="8911222222"/>
+            <column name="created_at" value="${date_now}"/>
+            <column name="modified_at" value="${date_now}"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

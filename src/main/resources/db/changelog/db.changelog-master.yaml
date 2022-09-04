@@ -1,4 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: creation-table.xml
-      relativeToChangelogFile: true

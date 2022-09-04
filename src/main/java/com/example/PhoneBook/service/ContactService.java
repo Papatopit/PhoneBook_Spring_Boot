@@ -1,18 +1,35 @@
 package com.example.PhoneBook.service;
 
 import com.example.PhoneBook.entity.Contact;
+import com.example.PhoneBook.repository.ContactRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface ContactService {
+@Service
+@AllArgsConstructor
+public class ContactService {
 
-    public List<Contact> getAllContacts();
+    private final ContactRepository contactRepository;
 
-    public void saveContact(Contact contact);
+    public List<Contact> getContacts() {
+        return (List<Contact>) contactRepository.findAll();
+    }
 
-    public Contact getContact(Long id);
+    public Contact saveContact(Contact contact) {
+        return contactRepository.save(contact);
+    }
 
-    public void deleteContact(Long id);
+    public Contact getContact(Long id) {
+        return contactRepository
+                .findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException(String.format("Can not find any contacts by ID:%s", id)));
+    }
 
-
+    public void deleteContact(Long id) {
+        contactRepository.deleteById(id);
+    }
 }
+

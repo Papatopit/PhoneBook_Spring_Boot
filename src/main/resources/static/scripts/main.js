@@ -1,8 +1,9 @@
 const API_URL = 'http://localhost:8080/contacts';
 const http = new HTTP(API_URL);
 
-http.fetchData().then((response) => {
+http.fetchData().then(async (response) => {
     if(response.ok) {
-        new Table(response.json());
+        const data = await response.json();
+        new Table(data);
     }
 });
